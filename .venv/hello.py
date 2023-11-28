@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = 'Testando_1_Chave_Secreta_201013415'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:senha@localhost/estagio'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:senha@localhost/atividade_teste'
 
 db = SQLAlchemy(app)
 
