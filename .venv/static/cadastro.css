@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    position: relative;
+    font-family: 'Poppins';
+}
+
+body::before{
+    content: "";
+    background-image: url("../static/img/imagem_soja_2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.66;
+    z-index: -1;
+}
+
+
+section.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.738);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+section.modal div#card{
+    width: 28rem;
+    height: 18rem;
+    position: relative;
+    background-color: aliceblue;
+    border-radius: 5%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+section.modal div#card a#fechar{
+    position: absolute;
+    right: 2%;
+    top: 1%;
+    width: 5%;
+    font-size: large;
+    font-family: 'Poppins';
+    text-decoration: none;
+    color: rgb(0, 42, 255);
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    transition: .3s ease-out;
+}
+
+section.modal div#card a#fechar:hover{
+    position: absolute;
+    right: 2%;
+    top: 1%;
+    width: 7%;
+    font-size: x-large;
+    font-family: 'Poppins';
+    text-decoration: none;
+    background-color: red;
+    color: white;
+}
+
+section.modal div#card hr{
+    width: 90%;
+    margin: 0 auto;
+}
+
+section.modal div#card p{
+    font-size: large;
+    font-family: 'Poppins';
+}
+
+section.modal div#card div#botoes{
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    display: flex;
+    padding: 2rem 2rem 2rem 2rem;
+    text-decoration: none;
+}
+
+section.modal div#card div#botoes a{
+    text-decoration: none;
+    padding: 3%;
+    border: solid;
+    border-radius: 10px;
+}
+
+section.modal div#card div#botoes a#confirmar{
+    background-color: aliceblue;
+    border-color: black;
+    color: black;
+    transition: .3s ease-out;
+}
+section.modal div#card div#botoes a#confirmar:hover{
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+section.modal div#card div#botoes a#cancelar{
+    background-color: white;
+    border-color: red;
+    color: black;
+    transition: .3s ease-out;
+}
+
+section.modal div#card div#botoes a#cancelar:hover{
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+
+/*tiutlo*/
+.cadastrar_usuario{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.cadastrar{
+    border: solid;
+    border-radius: 15px;
+    padding: 2%;
+    background-color: rgb(240, 248, 255);
+    width: 25%;
+}
+
+h2{
+    text-align: center;
+}
+
+.formulario{
+    position: relative;
+    padding-top: 15%;
+}
+
+.formulario input{
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: none;
+    border-bottom: 2px solid rgb(73, 73, 73);
+    background-color: transparent;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: .3s ease-out;
+}
+
+.formulario label{
+    position: absolute;
+    color: rgb(73, 73, 73);
+    pointer-events: none;
+    top: 40%;
+    left: 0;
+    margin-top: 16px;
+    transition: .3s ease-out;
+}
+/*
+.formulario input:focus + label {
+    top: 20%;
+    left: 0;
+    font-size: 10px;
+    margin-top: 0;
+    color: black;
+}
+*/
+
+.formulario input:not(:placeholder-shown) + label,
+.formulario input:focus + label {
+    top: 20px;
+    font-size: 12px;
+    left: 0;
+    color: black;
+}
+
+.formulario input:focus + label {
+    top: -20px;
+}
+
+.submit{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+input[type="submit"]{
+    font-size: 16px;
+    background-color: rgb(40, 186, 0);
+    padding:1%;
+    border: solid 2px rgb(40, 186, 0);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s ease-out;
+}
+
+input[type="submit"]:hover{
+    font-size: 16px;
+    background-color: rgb(89, 255, 43);
+    padding:1%;
+    border: solid 2px rgb(89, 255, 43);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+#ver_senha{
+    position: absolute;
+    right: 0;
+    top: 35%;
+    opacity: 75%;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+#ver_senha_confirmar{
+    position: absolute;
+    right: 0;
+    top: 35%;
+    opacity: 75%;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+/*usuarios*/
+div#tabela_usuarios{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#tabela tr:nth-child(even) {
+    background-color: rgb(240, 240, 240); 
+}
+
+#tabela tr:nth-child(odd) {
+    background-color: rgb(200, 200, 200);
+}
+
+div#tabela_usuarios section#usuarios{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(255,255,255);
+    border: solid 3px rgb(123, 123, 123);
+    border-radius: 15px;
+    width: 75%;
+}
+
+div#tabela_usuarios section#usuario table#tabela{
+    border-radius: 10%;
+}
+
+
+.atualizar{
+    text-decoration: none;
+    border: solid rgb(19, 73, 221) 2px;
+    border-radius: 8px;
+    background-color: rgb(19, 73, 221);
+    color: white;
+    padding: 2px;
+}
+
+.atualizar:hover{
+    text-decoration: none;
+    border: solid rgb(9, 52, 172) 2px;
+    border-radius: 8px;
+    background-color: rgb(9, 52, 172);
+    color: white;
+    padding: 2px;
+    transition: .3s ease-out;
+}
+
+
+.deletar{
+    text-decoration: none;
+    color: white;
+    border: solid rgb(255, 34, 34) 2px;
+    border-radius: 8px;
+    background-color: rgb(255, 34, 34);
+    padding: 2px;
+    transition: .3s ease-out;
+}
+
+.deletar:hover{
+    text-decoration: none;
+    color: white;
+    border: solid rgb(201, 21, 21) 2px;
+    border-radius: 8px;
+    background-color: rgb(201, 21, 21);
+    padding: 2px;
+}
+
+.id_usuario{
+    border: solid 2px rgb(123, 123, 123);
+    border-radius: 5px;
+    text-align: center; 
+    padding: 1px;
+    width: 0.5%;
+}
+
+.info_usuario{
+    border: solid 2px rgb(123, 123, 123);
+    border-radius: 5px ;
+    text-align: center; 
+    padding: 1px;
+    width: 50vh;
+}
+
+.acoes{
+    border: solid 2px rgb(123, 123, 123);
+    border-radius: 5px ;
+    padding: 1%;
+    gap: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+/*nav bar*/
+.header{
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    justify-content: flex-end;
+    font-family: 'Poppins';
+}
+
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    width: 15%;
+    align-items: center;
+    flex-basis: 25%;
+    gap: 2%;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-basis: 75%;
+    margin-left: 40vh;
+}
+
+.titulo2{
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.logout{
+    color: #FFFFFF;
+    text-decoration: none;
+    border: white solid 2px;
+    border-radius: 10px;
+    padding: 1%;
+    transition: .3s ease-out;
+}
+.logout:hover{
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    border: red solid;
+    border-radius: 10px;
+}
+
+.historico{
+    color: #FFFFFF;
+    text-decoration: none;
+    border: #FFFFFF solid 2px;
+    border-radius: 10px;
+    padding: 1%;
+    transition: .3s ease-out;
+}
+
+.historico:hover{
+    color: white;
+    background-color: rgb(7, 173, 40);
+    text-decoration: none;
+    border: rgb(7, 173, 40) solid;
+    border-radius: 10px;
+}
+
+
+/*atualizar usuario*/
+section.modal_atualiza{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.738);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.card{
+    width: 28rem;
+    height: 28rem;
+    position: relative;
+    background-color: aliceblue;
+    border-radius: 5%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.fechar{
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    right: 2%;
+    top: 1%;
+    width: 5%;
+    font-size: large;
+    text-decoration: none;
+    color: rgb(0, 42, 255);
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    transition: .3s ease-out;
+}
+
+.fechar:hover{
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    right: 2%;
+    top: 1%;
+    font-size: x-large;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    height: 5%;
+}
+
+.cancelar{
+    margin-top: 5%;
+    text-decoration: none;
+    background-color: white;
+    border: solid 2px;
+    border-radius: 7px;
+    border-color: red;
+    color: black;
+    padding: 1%;
+    transition: .3s ease-out;
+}
+
+.cancelar:hover{
+    background-color: red;
+    border: solid 2px;
+    border-radius: 7px;
+    border-color: red;
+    color: white;
+    padding: 1%;
+}
+
+.card .input_atualizar{
+    margin-top: 5%;
+    text-decoration: none;
+    background-color: white;
+    border: solid 2px;
+    border-radius: 7px;
+    border-color: rgb(19, 73, 221);
+    color: black;
+    padding: 1%;
+    font-size: 18px;
+    box-shadow: none;
+    transition: .3s ease-out;
+}
+
+.card .input_atualizar:hover{
+    margin-top: 5%;
+    text-decoration: none;
+    background-color: rgb(19, 73, 221);
+    border: solid 2px;
+    border-radius: 7px;
+    border-color: rgb(19, 73, 221);
+    color: white;
+    padding: 1%;
+    font-size: 18px;
+    box-shadow: none;
+}
+
+.formulario_atualizar{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    gap: 10%;
+    padding: 5%;
+}
+
+.formulario_atualizar input{
+    width: 100%;
+    padding: 5% 5% 0% 0%;
+    display: inline-block;
+    border: none;
+    border-bottom: 2px solid rgb(73, 73, 73);
+    background-color: transparent;
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: .3s ease-out;
+}
+
+.formulario_atualizar input:focus + label{
+    top: 5px;
+    left: 0;
+    font-size: 20px;
+    margin-top: 0;
+    color: black;
+    color: black;
+}
+
+#ver_senha_atualiza{
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    opacity: 75%;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.checkbox_adm{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10%;
+    padding-top: 2.5% 2.5%;
+}
+
+#checkbox{
+    padding: 5% 0% 5% 0%;
+    color: rgb(73, 73, 73);
+}

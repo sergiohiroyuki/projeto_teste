@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historico do Usuario</title>
+    <link rel="stylesheet" href="/static/historico_usuario.css">
+    <link rel="icon" type="image/png" href="/static/img/novo_icone_soja-removebg-preview.png">
+</head>
+<body>
+
+    <header class="header">
+        <div class="titulo">
+            <h2>Histórico do {{nome_usuario}}</h2>
+        </div>
+        <nav class="nav">
+            <a href="/inicial" class="algoritmo">Algoritmo</a>
+            <a href="/logout" class="logout">Logout</a>
+        </nav>
+    </header>
+
+    
+
+    <div class="pagination">
+        <ul>
+            {% if historico.prev_num %}
+                <li><a href="{{ url_for('historico_usuario', page=historico.prev_num) }}">Anterior</a></li>
+            {% else %}
+                <li class="disabled">Anterior</li>
+            {% endif %}
+
+            {% for page_num in historico.iter_pages() %}
+                {% if page_num %}
+                    {% if page_num == historico.page %}
+                        <li class="active"><span>{{ page_num }}</span></li>
+                    {% else %}
+                        <li><a href="{{ url_for('historico_usuario', page=page_num) }}">{{ page_num }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="disabled"><span>...</span></li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if historico.next_num %}
+                <li><a href="{{ url_for('historico_usuario', page=historico.next_num) }}">Próxima</a></li>
+            {% else %}
+                <li class="disabled">Próxima</li>
+            {% endif %}
+        </ul>
+    </div>    
+    
+    <div class="historico_usuario">
+            <table id="tabela" cellspacing="10">
+                <thead>
+                    <tr>
+                        <th class="id_usuario">    ID  </th>
+                        <th class="info_usuario">    Cultura    </th>
+                        <th class="info_usuario">    Data   </th>
+                        <th class="info_usuario">    Ações   </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for historico in historico %}
+                        <tr>
+                            <th class="id_usuario">    {{ historico['id'] }}   </th>
+                            <td class="info_usuario">    {{ historico['nome'] }} </td>
+                            <td class="info_usuario">    {{ historico['data_hora'] }}    </td>
+                            <td class="acoes">
+                                <a href="/historico_usuario/{{historico.id}}" class="visualizar">Visualizar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+    <div class="pagination">
+        <ul>
+            {% if historico.prev_num %}
+                <li><a href="{{ url_for('historico_usuario', page=historico.prev_num) }}">Anterior</a></li>
+            {% else %}
+                <li class="disabled">Anterior</li>
+            {% endif %}
+
+            {% for page_num in historico.iter_pages() %}
+                {% if page_num %}
+                    {% if page_num == historico.page %}
+                        <li class="active"><span>{{ page_num }}</span></li>
+                    {% else %}
+                        <li><a href="{{ url_for('historico_usuario', page=page_num) }}">{{ page_num }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li class="disabled"><span>...</span></li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if historico.next_num %}
+                <li><a href="{{ url_for('historico_usuario', page=historico.next_num) }}">Próxima</a></li>
+            {% else %}
+                <li class="disabled">Próxima</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    
+</body>
+</html>

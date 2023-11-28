@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/resultados.css">
+    <link rel="icon" type="image/png" href="/static/img/novo_icone_soja-removebg-preview.png">
+</head>
+<body>
+
+    <header class="header">
+        <div class="titulo">
+            <h1>Resultados</h1>
+            </h1>
+        </div>
+        <nav class="nav">
+            {% if usuario.adm == True %}
+            <a href="/historico_geral" class="algoritmo">Historico</a>
+            {% else %}
+            <a href="/inicial" class="algoritmo">Algoritmo</a>
+            {% endif %}
+            <a href="/logout" class="logout">Logout</a>
+        </nav>
+    </header>
+
+    {% if grafico_de_linha %}
+        <div class="grafico" >
+            {{ grafico_de_linha | safe }}
+         </div>
+    {% endif %}
+
+    {% if grafico_de_barras %}
+        <div class="grafico" >
+            {{ grafico_de_barras | safe }}
+        </div>
+    {% endif %}  <br>
+    
+    {% if tabela %}
+        <div class="tabela" >
+            {{ tabela | safe }}
+        </div>
+    {% endif %}
+    
+</body>
+</html>
